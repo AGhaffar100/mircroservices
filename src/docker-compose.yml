@@ -20,7 +20,7 @@ services:
   catalog.api:
     image: ${DOCKER_REGISTRY-}catalogapi
     build:
-      context: .
+      context:  .
       dockerfile: Services/Catalog/Catalog.API/Dockerfile
 
   basket.api:
@@ -35,10 +35,17 @@ services:
       context: .
       dockerfile: Services/Discount/Discount.API/Dockerfile
 
+  discount.grpc:
+    image: ${DOCKER_REGISTRY-}discountgrpc
+    build:
+      context: .
+      dockerfile: Services/Discount/Discount.Grpc/Dockerfile
+
 volumes:
   mango_data:
   portainer_data:
   postgres_data:
   pgadmin_data:
+
 
 
